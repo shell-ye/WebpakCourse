@@ -1,0 +1,16 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6496025",
+      "name": "Webpack",
+      "font_class": "webpack",
+      "unicode": "e799",
+      "unicode_decimal": 59289
+    }
+  ]
+}
