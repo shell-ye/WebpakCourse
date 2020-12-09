@@ -1,6 +1,9 @@
 <template>
     <div id="assest">
-        <img src="@/assets/img/assets.png" alt="" class="img">
+        <!-- 图片 -->
+        <img src="@/assets/img/assets.png" alt="">
+        <!-- 字体 -->
+        <i class="iconfont icon-demonstrate"></i>
     </div>
 </template>
 
@@ -11,7 +14,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.img {
+// scss
+img {
     width: 20px;
     height: 20px;
 }

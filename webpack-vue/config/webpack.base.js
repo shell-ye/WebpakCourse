@@ -32,6 +32,7 @@ module.exports = {
                     extractCSS: true
                 }
             },
+            // 处理图片
             {
                 test: /\.(png|jpg|gif)$/i,
                 use: [
@@ -52,12 +53,14 @@ module.exports = {
                     }
                 ]
             },
+            // 处理 css 和 scss
             {
                 test: /\.css$/,
                 use: [
                     process.env.NODE_ENV !== 'production'
                         ? 'vue-style-loader'
                         : MiniCssExtractPlugin.loader,
+                    'style-loader',
                     'css-loader'
                 ]
             },
@@ -65,9 +68,39 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     'vue-style-loader',
+                    'style-loader',
                     'css-loader',
                     'sass-loader'
                 ]
+            },
+            // 处理字体
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8 * 1024,
+                            // 配置输出的文件名
+                            name: '[name].[ext]',
+                            // 配置静态资源的引用路径
+                            publicPath: "../fonts/",
+                            // 配置输出的文件目录
+                            outputPath: "fonts/"
+                        }
+                    }
+                ]
+            },
+            // 处理 js
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
             }
         ]
     }
